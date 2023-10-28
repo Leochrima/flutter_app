@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:japan_reise/components/button.dart';
 import 'package:japan_reise/components/event_tile.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -40,6 +41,74 @@ class _MenuPageState extends State<MenuPage> {
     ];
 
     return Scaffold(
+        appBar: AppBar(
+          title: Text("Makerspace"),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: Icon(Icons.menu),
+          actions: [
+            /* IconButton(
+            onPressed: () { },
+            icon: _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
+          ), */
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: IconButton(
+                icon: Icon(Icons.shopping_cart),
+                onPressed: () => Navigator.pushNamed(context, '/cartpage'),
+              ),
+            )
+          ], //der Button der da automatisch angezeigt wird in der Appar
+        ),
+        body: Column(children: [
+          Image.asset(
+            "lib/images/japan2.png",
+            height: 100,
+          ),
+          //SizedBox(width: 200),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                width: 150,
+                padding: EdgeInsets.symmetric(vertical: 25, horizontal: 10),
+                //margin: EdgeInsetsDirectional.symmetric(horizontal: 25),
+                decoration: BoxDecoration(
+                  color: const Color(0xffffb46c),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Center(child: Text("Shop")),
+              ),
+              Container(
+                width: 150,
+                padding: EdgeInsets.symmetric(vertical: 25, horizontal: 10),
+                //margin: EdgeInsetsDirectional.symmetric(horizontal: 25),
+                decoration: BoxDecoration(
+                  color: const Color(0xffffb46c),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Center(child: Text("Kalender")),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FaIcon(FontAwesomeIcons.instagram),
+              SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Öffnungszeiten"),
+                  Text("Di & Do: 10-16 Uhr"),
+                ],
+              ),
+            ],
+          )
+        ]));
+
+    /* Scaffold(
       backgroundColor: _isDarkMode
           ? Colors.black
           : Color.fromARGB(255, 215, 165,
@@ -196,6 +265,6 @@ class _MenuPageState extends State<MenuPage> {
           SizedBox(height: 10),
         ],
       ),
-    );
+    ); */
   }
 }

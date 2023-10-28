@@ -24,6 +24,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: StartPage(),
+      theme:
+          ThemeData(scaffoldBackgroundColor: Color.fromARGB(255, 99, 68, 68)),
       routes: {
         '/startpage': (context) => StartPage(),
         '/menupage': (context) => MenuPage(),

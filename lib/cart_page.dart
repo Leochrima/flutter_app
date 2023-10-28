@@ -11,7 +11,7 @@ class CardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<CartModel>(
       builder: (context, CartModel, child) => Scaffold(
-        backgroundColor: Color.fromARGB(255, 215, 165, 187),
+        //backgroundColor: Color.fromARGB(255, 215, 165, 187),
         appBar: AppBar(
           title: Text("Warenkorb"),
           centerTitle: true,
