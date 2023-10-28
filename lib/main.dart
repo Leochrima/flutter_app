@@ -7,6 +7,7 @@ import 'package:japan_reise/pages/start_page.dart';
 import 'package:provider/provider.dart';
 import 'package:japan_reise/models/cart_model.dart';
 import 'package:japan_reise/cart_page.dart';
+import 'haha';
 
 void main() {
   runApp(ChangeNotifierProvider(
