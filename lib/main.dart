@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:japan_reise/components/category_page.dart';
+import 'package:japan_reise/pages/category_page.dart';
 import 'package:japan_reise/models/cart_model.dart';
 import 'package:japan_reise/models/database.dart';
 import 'package:japan_reise/pages/event_pages/festival.dart';
@@ -13,21 +13,13 @@ import 'package:japan_reise/models/database.dart';
 import 'package:japan_reise/cart_page.dart';
 
 void main() {
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(
-      child: const MyApp(),
-      create: (context) => CartModel(),
-    ),
-    ChangeNotifierProvider(
-      child: const MyApp(),
-      create: (context) => DataBase(),
-    ),
-  ])
-      /* ChangeNotifierProvider(
-      child: const MyApp(),
-      create: (context) => {CartModel(), DataBase()},
-    ), */
-      );
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => CartModel()),
+      ChangeNotifierProvider(create: (context) => DataBase()),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
