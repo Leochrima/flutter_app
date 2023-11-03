@@ -70,15 +70,19 @@ class _MenuPageState extends State<MenuPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                width: 150,
-                padding: EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                //margin: EdgeInsetsDirectional.symmetric(horizontal: 25),
-                decoration: BoxDecoration(
-                  color: const Color(0xffffb46c),
-                  borderRadius: BorderRadius.circular(5),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/shoppage'),
+                child: Container(
+                  width: 150,
+
+                  padding: EdgeInsets.symmetric(vertical: 25, horizontal: 10),
+                  //margin: EdgeInsetsDirectional.symmetric(horizontal: 25),
+                  decoration: BoxDecoration(
+                    color: const Color(0xffffb46c),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Center(child: Text("Shop")),
                 ),
-                child: Center(child: Text("Shop")),
               ),
               Container(
                 width: 150,

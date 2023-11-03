@@ -7,6 +7,31 @@ class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: SafeArea(
+          child: Column(children: [
+        RotatedBox(
+          quarterTurns: 3,
+          child: Text(
+            "Makerspace",
+            style: TextStyle(
+              fontSize: 100,
+              //fontFamily: 'RobotoMono',
+            ),
+          ),
+        ),
+        Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: MyButton(
+                mytext: "Reise Starten!",
+                event: () => Navigator.pushNamed(context, '/menupage'),
+              ),
+            ),
+          ],
+        )
+      ])),
+    ); /* Scaffold(
       backgroundColor: Color.fromARGB(255, 215, 165, 187),
       body: SafeArea(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -81,6 +106,6 @@ class StartPage extends StatelessWidget {
           ),
         ]),
       ),
-    );
+    ); */
   }
 }
