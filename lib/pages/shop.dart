@@ -75,7 +75,7 @@ class Shop extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Icon(Icons.menu),
+        //leading: Icon(Icons.menu),
         actions: [
           /* IconButton(
             onPressed: () { },

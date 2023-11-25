@@ -57,7 +57,7 @@ List everything = [
 List models_3D = [
   Products(
       name: "Globus",
-      imagePath: "lib/images/japan4.png",
+      imagePath: "lib/images/fox.PNG",
       price: 100,
       creator: "M. Kholghi"),
   Products(

@@ -40,7 +40,17 @@ class _MenuPageState extends State<MenuPage> {
       ),
     ];
 
-    return Scaffold(
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        colors: [
+          Color.fromRGBO(235, 239, 246, 1),
+          Color.fromARGB(255, 125, 190, 244)
+        ],
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+      )),
+      child: Scaffold(
         appBar: AppBar(
           title: Text("Makerspace"),
           centerTitle: true,
@@ -49,9 +59,9 @@ class _MenuPageState extends State<MenuPage> {
           leading: Icon(Icons.menu),
           actions: [
             /* IconButton(
-            onPressed: () { },
-            icon: _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
-          ), */
+              onPressed: () { },
+              icon: _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
+            ), */
             Padding(
               padding: const EdgeInsets.only(right: 15.0),
               child: IconButton(
@@ -110,7 +120,9 @@ class _MenuPageState extends State<MenuPage> {
               ),
             ],
           )
-        ]));
+        ]),
+      ),
+    );
 
     /* Scaffold(
       backgroundColor: _isDarkMode

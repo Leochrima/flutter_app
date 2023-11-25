@@ -1,0 +1,31 @@
+Todos Mahsa:
+
+1) Appbar global
+2) Inhalt (Database) + Text erzugen 
+4) leeres Bild 
+5) layout von Bilder
+6) Preise an den Bilder schreiben (vielleicht noch die Rating)
+
+
+
+Todos Leona:
+1) Kalender
+2) Startseite
+3) Download link für 3D modell
+4) Cartpage grobes Design
+
+
+
+
+vielleicht:
+bewegende Bilder
+Bewerten
+Account funktion
+Animation beim Öffnen
+
+
+Heute:
+1) Object seite
+2) menü site (insta seite)
+3) Button Design ändern
+
