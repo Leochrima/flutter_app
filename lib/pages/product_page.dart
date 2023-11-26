@@ -1,20 +1,26 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:japan_reise/components/button.dart';
 import 'package:japan_reise/models/cart_model.dart';
 import 'package:provider/provider.dart';
 
 class ProductPage extends StatelessWidget {
-  final String name = "Bla";
+  //Todo: auch rating in database eintragen
   final String rating = "5";
-
+  //final String picture = "lib/images/3D_1.PNG";
   const ProductPage({
     super.key,
-    //required this.name,
-    //required this.rating,
   });
 
   @override
   Widget build(BuildContext context) {
+    final arg = ModalRoute.of(context)!.settings.arguments as Map;
+    final name = arg["name"];
+    final String picture = arg["imagPath"];
+    final details = arg["content"];
+    final price = arg["price"];
+    final creator = arg["creator"];
     return Consumer<CartModel>(
       builder: (context, CartModel, child) => Container(
         decoration: BoxDecoration(
@@ -45,7 +51,7 @@ class ProductPage extends StatelessWidget {
             children: [
               Center(
                 child: Image.asset(
-                  "lib/images/japan7.png",
+                  picture,
                   height: 200,
                 ),
               ),
@@ -69,7 +75,7 @@ class ProductPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Mitama Matsuri Festival",
+                                  name,
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 25,
@@ -85,7 +91,7 @@ class ProductPage extends StatelessWidget {
                                       size: 30,
                                     ),
                                     Text(
-                                      "5.0",
+                                      rating,
                                       style: TextStyle(
                                         fontSize: 20,
                                         color: Colors.white,
@@ -95,7 +101,7 @@ class ProductPage extends StatelessWidget {
                                 ),
                                 SizedBox(height: 10),
                                 Text(
-                                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus nec elit at rhoncus. Sed eu augue scelerisque, consectetur nunc non, rhoncus lectus. Sed posuere nibh sagittis molestie posuere. Etiam eget porta nunc, id ultricies ligula. Duis gravida nulla blandit mauris rhoncus tincidunt. Nam sollicitudin pretium bibendum. Aenean cursus ornare felis vitae porta.",
+                                  details,
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 16,
@@ -103,8 +109,10 @@ class ProductPage extends StatelessWidget {
                                   ),
                                 ),
                                 Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Text("Creator:"),
+                                    Text("Creator:  ${creator.toString()}"),
                                     Text("Download:")
                                   ],
                                 )
@@ -119,7 +127,7 @@ class ProductPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
-                            "€ 48",
+                            price.toString(),
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.white,

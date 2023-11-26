@@ -24,7 +24,7 @@ class StartPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: MyButton(
-                mytext: "Reise Starten!",
+                mytext: "Entdecken!",
                 event: () => Navigator.pushNamed(context, '/menupage'),
               ),
             ),

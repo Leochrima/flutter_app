@@ -5,19 +5,42 @@ import 'package:japan_reise/models/database.dart';
 import 'package:provider/provider.dart';
 
 class CategoryPage extends StatelessWidget {
+  final int? id;
   const CategoryPage({
     super.key,
+    this.id = 0,
   });
 
   @override
   Widget build(BuildContext context) {
+    final arg = ModalRoute.of(context)!.settings.arguments as Map;
+    final arg1 = arg["id"];
+    final arg2 = arg["name"];
+    List categorie = [];
+    switch (arg1 as int) {
+      case 1:
+        categorie = models_3D;
+      case 2:
+        categorie = electronic;
+      case 3:
+        categorie = holz;
+      case 4:
+        categorie = ton;
+      default:
+    }
     List ShopList = [];
-    for (final product in models_3D) {
+    for (final product in categorie) {
       ShopList.add(ShopTile(
           name: product.name,
           imagePath: product.imagePath,
-          details: () => Navigator.pushNamed(context,
-              '/festivalpage'))); //this must be conditional depending on the content of the page
+          details: () =>
+              Navigator.pushNamed(context, '/festivalpage', arguments: {
+                "name": product.name,
+                "imagPath": product.imagePath,
+                "content": product.content,
+                "price": product.price,
+                "creator": product.creator,
+              }))); //this must be conditional depending on the content of the page
     }
     /* List ShopList = [
       ShopTile(
@@ -85,7 +108,7 @@ class CategoryPage extends StatelessWidget {
     return Consumer<CartModel>(
         builder: (context, CartModel, child) => Scaffold(
               appBar: AppBar(
-                title: Text("3D Modelle"), //category
+                title: Text(arg2), //category
                 centerTitle: true,
                 backgroundColor: Colors.transparent,
                 elevation: 0,

@@ -9,33 +9,45 @@ class Shop extends StatelessWidget {
     List ShopList = [
       ShopTile(
         name: "3D Modelle",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/categorypage'),
+        imagePath: "lib/images/3D.PNG",
+        details: () => Navigator.pushNamed(
+          context,
+          '/categorypage',
+          arguments: {"id": 1, "name": "3D Modelle"},
+        ),
       ),
       ShopTile(
         name: "Arduinos",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
+        imagePath: "lib/images/electro.png",
+        details: () => Navigator.pushNamed(
+          context,
+          '/categorypage',
+          arguments: {"id": 2, "name": "Arduinos"},
+        ),
       ),
       ShopTile(
         name: "Holzwerkstücke",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
+        imagePath: "lib/images/wood.PNG",
+        details: () => Navigator.pushNamed(context, '/categorypage',
+            arguments: {"id": 3, "name": "Holzwerkstücke"}),
+      ),
+      ShopTile(
+        name: "Tonware",
+        imagePath: "lib/images/tonwaren.png",
+        details: () => Navigator.pushNamed(context, '/categorypage',
+            arguments: {"id": 4, "name": "Tonware"}),
       ),
       ShopTile(
         name: "Mitama Matsuri Festival",
         imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
+        details: () => Navigator.pushNamed(context, '/categorypage',
+            arguments: {"id": 5, "name": "Something"}),
       ),
       ShopTile(
         name: "Mitama Matsuri Festival",
         imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
+        details: () =>
+            Navigator.pushNamed(context, '/festivalpage', arguments: 6),
       ),
       ShopTile(
         name: "Mitama Matsuri Festival",

@@ -73,8 +73,8 @@ class _MenuPageState extends State<MenuPage> {
         ),
         body: Column(children: [
           Image.asset(
-            "lib/images/japan2.png",
-            height: 100,
+            "lib/images/makerspace.png",
+            height: 400,
           ),
           //SizedBox(width: 200),
           Row(
