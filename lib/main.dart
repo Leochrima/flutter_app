@@ -7,8 +7,6 @@ import 'package:japan_reise/pages/menu_page.dart';
 import 'package:japan_reise/pages/shop.dart';
 import 'package:japan_reise/pages/start_page.dart';
 import 'package:provider/provider.dart';
-import 'package:japan_reise/models/cart_model.dart';
-import 'package:japan_reise/models/database.dart';
 import 'package:japan_reise/cart_page.dart';
 
 void main() {
@@ -48,7 +46,7 @@ class MyApp extends StatelessWidget {
         '/startpage': (context) => StartPage(),
         '/menupage': (context) => MenuPage(),
         '/shoppage': (context) => Shop(),
-        '/festivalpage': (context) => ProductPage(),
+        '/productpage': (context) => ProductPage(),
         '/cartpage': (context) => CardPage(),
         '/categorypage': (context) => CategoryPage(),
       },

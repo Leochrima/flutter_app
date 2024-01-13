@@ -52,7 +52,7 @@ class _MenuPageState extends State<MenuPage> {
       )),
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Makerspace"),
+          title: Text(""),
           centerTitle: true,
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -72,11 +72,21 @@ class _MenuPageState extends State<MenuPage> {
           ], //der Button der da automatisch angezeigt wird in der Appar
         ),
         body: Column(children: [
+          SizedBox(height: 50),
+          Center(
+            child: Text(
+              "Willkommen im",
+              style: TextStyle(
+                fontSize: 50,
+              ),
+            ),
+          ),
+          SizedBox(height: 15),
           Image.asset(
             "lib/images/makerspace.png",
-            height: 400,
+            //width: 300,
           ),
-          //SizedBox(width: 200),
+          SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -91,7 +101,13 @@ class _MenuPageState extends State<MenuPage> {
                     color: const Color(0xffffb46c),
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: Center(child: Text("Shop")),
+                  child: Center(
+                      child: Text(
+                    "Shop",
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  )),
                 ),
               ),
               Container(
@@ -102,7 +118,13 @@ class _MenuPageState extends State<MenuPage> {
                   color: const Color(0xffffb46c),
                   borderRadius: BorderRadius.circular(5),
                 ),
-                child: Center(child: Text("Kalender")),
+                child: Center(
+                    child: Text(
+                  "Kalender",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                )),
               ),
             ],
           ),
@@ -119,7 +141,7 @@ class _MenuPageState extends State<MenuPage> {
                 ],
               ),
             ],
-          )
+          ),
         ]),
       ),
     );

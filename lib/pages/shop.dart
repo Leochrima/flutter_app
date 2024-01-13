@@ -43,42 +43,6 @@ class Shop extends StatelessWidget {
         details: () => Navigator.pushNamed(context, '/categorypage',
             arguments: {"id": 5, "name": "Something"}),
       ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () =>
-            Navigator.pushNamed(context, '/festivalpage', arguments: 6),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
     ];
 
     return Scaffold(

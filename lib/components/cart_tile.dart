@@ -4,12 +4,14 @@ class CartTile extends StatelessWidget {
   final String name;
   final String imagePath;
   final int quantity;
+  final String price;
   final void Function()? productpage;
 
   const CartTile({
     super.key,
     required this.name,
     required this.imagePath,
+    required this.price,
     required this.quantity,
     required this.productpage,
   });
@@ -17,7 +19,7 @@ class CartTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 25),
+      margin: EdgeInsets.symmetric(horizontal: 25, vertical: 2.5),
       padding: EdgeInsets.all(8),
       width: 200,
       decoration: BoxDecoration(
@@ -25,28 +27,59 @@ class CartTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          GestureDetector(
-            onTap: productpage,
-            child: Image.asset(imagePath),
-          ),
-          Text(
-            name,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: Container(
+              height: 50,
+              width: 50,
+              child: GestureDetector(
+                onTap: productpage,
+                child: Image.asset(
+                  imagePath,
+                  height: 50,
+                ),
+              ),
             ),
           ),
-          Text(
-            "Quantity", //CartModel.nudelsuppe.toString(),
-            style: TextStyle(
-              color: Colors.white,
-            ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                name,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+              ),
+              SizedBox(height: 3),
+              Text(
+                price,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                ),
+              ),
+            ],
           ),
-          IconButton(
-            icon: Icon(Icons.delete, color: Colors.white),
-            onPressed: () {}, //CartModel.clearNudelsuppe,
+          Expanded(
+              child: SizedBox(
+            width: 1,
+          )),
+          Row(
+            children: [
+              Text(
+                quantity.toString(), //CartModel.nudelsuppe.toString(),
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              IconButton(
+                icon: Icon(Icons.delete, color: Colors.white),
+                onPressed: () {}, //CartModel.clearNudelsuppe,
+              ),
+            ],
           ),
         ],
       ),

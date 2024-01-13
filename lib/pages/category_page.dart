@@ -16,94 +16,35 @@ class CategoryPage extends StatelessWidget {
     final arg = ModalRoute.of(context)!.settings.arguments as Map;
     final arg1 = arg["id"];
     final arg2 = arg["name"];
-    List categorie = [];
+    List category = [];
     switch (arg1 as int) {
       case 1:
-        categorie = models_3D;
+        category = models_3D;
       case 2:
-        categorie = electronic;
+        category = electronic;
       case 3:
-        categorie = holz;
+        category = holz;
       case 4:
-        categorie = ton;
+        category = ton;
       default:
     }
     List ShopList = [];
-    for (final product in categorie) {
+    for (final product in category) {
       ShopList.add(ShopTile(
           name: product.name,
           imagePath: product.imagePath,
           details: () =>
-              Navigator.pushNamed(context, '/festivalpage', arguments: {
+              Navigator.pushNamed(context, '/productpage', arguments: {
+                "product": product,
+              } /*arguments: {
                 "name": product.name,
                 "imagPath": product.imagePath,
                 "content": product.content,
                 "price": product.price,
                 "creator": product.creator,
-              }))); //this must be conditional depending on the content of the page
+              }*/
+                  ))); //this must be conditional depending on the content of the page
     }
-    /* List ShopList = [
-      ShopTile(
-        name: models_3D[0].name,
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Arduinos",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Holzwerkstücke",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-    ]; */
 
     return Consumer<CartModel>(
         builder: (context, CartModel, child) => Scaffold(

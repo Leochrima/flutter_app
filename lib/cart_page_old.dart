@@ -1,9 +1,10 @@
-import 'dart:ffi';
+//cartmodel.clear_nudelsuppe ->in cartmodel_clear_item
+//Problem: er muss noch irgendwie wissen, was das Item ist
+//if brauchen wir nicht mehr
 
 import 'package:flutter/material.dart';
 import 'package:japan_reise/models/cart_model.dart';
 import 'package:provider/provider.dart';
-import 'package:japan_reise/components/cart_tile.dart';
 
 class CardPage extends StatelessWidget {
   const CardPage({super.key});

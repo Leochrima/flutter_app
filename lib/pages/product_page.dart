@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:japan_reise/components/button.dart';
 import 'package:japan_reise/models/cart_model.dart';
+import 'package:japan_reise/models/database.dart';
 import 'package:provider/provider.dart';
 
 class ProductPage extends StatelessWidget {
@@ -16,13 +17,14 @@ class ProductPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final arg = ModalRoute.of(context)!.settings.arguments as Map;
-    final name = arg["name"];
+    final product = arg["product"];
+    /*final name = arg["name"];
     final String picture = arg["imagPath"];
     final details = arg["content"];
     final price = arg["price"];
-    final creator = arg["creator"];
-    return Consumer<CartModel>(
-      builder: (context, CartModel, child) => Container(
+    final creator = arg["creator"];*/
+    return Consumer<DataBase>(
+      builder: (context, DataBase, child) => Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
           colors: [
@@ -42,8 +44,8 @@ class ProductPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 15.0),
                 child: Icon(Icons.shopping_cart),
+                //Icon(Icons.dark_mode),
               ),
-              Icon(Icons.dark_mode),
             ],
           ),
           body: Column(
@@ -51,7 +53,7 @@ class ProductPage extends StatelessWidget {
             children: [
               Center(
                 child: Image.asset(
-                  picture,
+                  product.imagePath, //picture,
                   height: 200,
                 ),
               ),
@@ -75,7 +77,7 @@ class ProductPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  name,
+                                  product.name,
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 25,
@@ -100,19 +102,26 @@ class ProductPage extends StatelessWidget {
                                   ],
                                 ),
                                 SizedBox(height: 10),
-                                Text(
-                                  details,
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    height: 1.5,
+                                Expanded(
+                                  child: Container(
+                                    child: SingleChildScrollView(
+                                      child: Text(
+                                        product.details,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          height: 1.5,
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Text("Creator:  ${creator.toString()}"),
+                                    Text(
+                                        "Creator:  ${product.creator.toString()}"),
                                     Text("Download:")
                                   ],
                                 )
@@ -127,7 +136,7 @@ class ProductPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text(
-                            price.toString(),
+                            product.price.toString(),
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.white,
@@ -142,7 +151,8 @@ class ProductPage extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 child: IconButton(
-                                  onPressed: CartModel.removeFestival,
+                                  onPressed: () =>
+                                      {}, //DataBase.removeItem(product),
                                   icon: Icon(
                                     Icons.remove,
                                   ),
@@ -150,7 +160,7 @@ class ProductPage extends StatelessWidget {
                               ),
                               SizedBox(width: 8),
                               Text(
-                                CartModel.festival.toString(),
+                                product.quantity.toString(),
                                 style: TextStyle(
                                   fontSize: 20,
                                   color: Colors.white,
@@ -164,7 +174,8 @@ class ProductPage extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 child: IconButton(
-                                  onPressed: CartModel.addFestival,
+                                  onPressed: () =>
+                                      {}, //DataBase.addItem(product),
                                   icon: Icon(Icons.add),
                                 ),
                               ),
