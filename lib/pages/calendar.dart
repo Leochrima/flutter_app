@@ -35,7 +35,8 @@ class Calendar extends StatelessWidget {
         ),
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 15),
-          child: Text("Hi"),
+          child: Text(
+              "Hier soll ein Kalender angezeigt werden welcher mit dem Kalender auf der Website des Makerspace synchronisiert ist!"),
         ),
       ),
     );
