@@ -9,26 +9,24 @@ class StartPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Column(children: [
+        SizedBox(height: 10),
         RotatedBox(
           quarterTurns: 3,
           child: Text(
             "Makerspace",
             style: TextStyle(
-              fontSize: 100,
+              fontSize: 110,
               //fontFamily: 'RobotoMono',
             ),
           ),
         ),
-        Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: MyButton(
-                mytext: "Entdecken!",
-                event: () => Navigator.pushNamed(context, '/menupage'),
-              ),
-            ),
-          ],
+        Expanded(child: Container()),
+        Padding(
+          padding: const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 100),
+          child: MyButton(
+            mytext: "Werde ein Macher!",
+            event: () => Navigator.pushNamed(context, '/menupage'),
+          ),
         )
       ])),
     ); /* Scaffold(

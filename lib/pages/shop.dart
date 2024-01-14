@@ -1,12 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:japan_reise/components/shop_tile.dart';
+import 'package:japan_reise/models/database.dart';
 
 class Shop extends StatelessWidget {
   const Shop({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List ShopList = [
+    List ShopList = [];
+    for (final category in allProducts) {
+      ShopList.add(ShopTile(
+          name: category.name,
+          imagePath: category.imagePath,
+          details: () =>
+              Navigator.pushNamed(context, '/categorypage', arguments: {
+                "category": category,
+              } /*arguments: {
+                "name": product.name,
+                "imagPath": product.imagePath,
+                "content": product.content,
+                "price": product.price,
+                "creator": product.creator,
+              }*/
+                  ))); //this must be conditional depending on the content of the page
+    }
+    /*List ShopList = [
       ShopTile(
         name: "3D Modelle",
         imagePath: "lib/images/3D.PNG",
@@ -37,43 +55,51 @@ class Shop extends StatelessWidget {
         details: () => Navigator.pushNamed(context, '/categorypage',
             arguments: {"id": 4, "name": "Tonware"}),
       ),
-      ShopTile(
-        name: "Mitama Matsuri Festival",
-        imagePath: "lib/images/japan7.png",
-        details: () => Navigator.pushNamed(context, '/categorypage',
-            arguments: {"id": 5, "name": "Something"}),
-      ),
-    ];
+    ];*/
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Shop"),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        //leading: Icon(Icons.menu),
-        actions: [
-          /* IconButton(
-            onPressed: () { },
-            icon: _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
-          ), */
-          Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: IconButton(
-              icon: Icon(Icons.shopping_cart),
-              onPressed: () => Navigator.pushNamed(context, '/cartpage'),
-            ),
-          )
-        ], //der Button der da automatisch angezeigt wird in der Appar
-      ),
-      body: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 5,
-          mainAxisSpacing: 5,
+    return Container(
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+        colors: [
+          Color.fromRGBO(235, 239, 246, 1),
+          Color.fromARGB(255, 125, 190, 244)
+        ],
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+      )),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Shop"),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          //leading: Icon(Icons.menu),
+          actions: [
+            /* IconButton(
+                onPressed: () { },
+                icon: _isDarkMode ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
+              ), */
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: IconButton(
+                icon: Icon(Icons.shopping_cart),
+                onPressed: () => Navigator.pushNamed(context, '/cartpage'),
+              ),
+            )
+          ], //der Button der da automatisch angezeigt wird in der Appar
         ),
-        itemBuilder: (context, index) => ShopList[index],
-        itemCount: ShopList.length,
+        body: Container(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
+            ),
+            itemBuilder: (context, index) => ShopList[index],
+            itemCount: ShopList.length,
+          ),
+        ),
       ),
     );
   }

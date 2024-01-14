@@ -2,14 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:japan_reise/components/button.dart';
-import 'package:japan_reise/models/cart_model.dart';
 import 'package:japan_reise/models/database.dart';
 import 'package:provider/provider.dart';
 
 class ProductPage extends StatelessWidget {
   //Todo: auch rating in database eintragen
   final String rating = "5";
-  //final String picture = "lib/images/3D_1.PNG";
   const ProductPage({
     super.key,
   });
@@ -43,7 +41,10 @@ class ProductPage extends StatelessWidget {
             actions: [
               Padding(
                 padding: const EdgeInsets.only(right: 15.0),
-                child: Icon(Icons.shopping_cart),
+                child: IconButton(
+                  icon: Icon(Icons.shopping_cart),
+                  onPressed: () => Navigator.pushNamed(context, '/cartpage'),
+                ),
                 //Icon(Icons.dark_mode),
               ),
             ],
@@ -57,11 +58,11 @@ class ProductPage extends StatelessWidget {
                   height: 200,
                 ),
               ),
-              SizedBox(height: 25),
-              SizedBox(height: 25),
+              SizedBox(height: 50),
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.all(20),
+                  padding:
+                      EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 25),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(40),
@@ -89,13 +90,22 @@ class ProductPage extends StatelessWidget {
                                   children: [
                                     Icon(
                                       Icons.star,
-                                      color: Colors.yellow,
-                                      size: 30,
+                                      color: Color(0xffffb46c),
+                                      size: 25,
                                     ),
+                                    SizedBox(width: 5),
                                     Text(
-                                      rating,
+                                      product.rating.toString(),
                                       style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    Expanded(child: Container()),
+                                    Text(
+                                      "Creator:  ${product.creator.toString()}",
+                                      style: TextStyle(
+                                        fontSize: 15,
                                         color: Colors.white,
                                       ),
                                     ),
@@ -116,15 +126,6 @@ class ProductPage extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text(
-                                        "Creator:  ${product.creator.toString()}"),
-                                    Text("Download:")
-                                  ],
-                                )
                               ]),
                         ),
                       ),
@@ -159,7 +160,7 @@ class ProductPage extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(width: 8),
+                              SizedBox(width: 10),
                               Text(
                                 product.quantity.toString(),
                                 style: TextStyle(
@@ -168,7 +169,7 @@ class ProductPage extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              SizedBox(width: 8),
+                              SizedBox(width: 10),
                               Container(
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,

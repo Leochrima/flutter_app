@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:japan_reise/components/button.dart';
 import 'package:japan_reise/components/event_tile.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -11,41 +12,29 @@ class MenuPage extends StatefulWidget {
   State<MenuPage> createState() => _MenuPageState();
 }
 
+final Uri instagramUrl = Uri.parse("https://www.google.com/");
+
 class _MenuPageState extends State<MenuPage> {
   bool _isDarkMode = false;
 
+  void _launchInstagram() async {
+    if (await canLaunchUrl(instagramUrl)) {
+      await launchUrl(instagramUrl, mode: LaunchMode.platformDefault);
+    } else {
+      throw 'Could not launch Instagram';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    List EventList = [
-      EventTile(
-        name: "Mitama Matsuri Festival",
-        price: "€ 49",
-        imagePath: "lib/images/japan7.png",
-        rating: "5",
-        details: () => Navigator.pushNamed(context, '/festivalpage'),
-      ),
-      EventTile(
-        name: "Noodle Haromy Japan",
-        price: "€ 18",
-        imagePath: "lib/images/japan3.png",
-        rating: "4",
-        details: () => Navigator.pushNamed(context, '/noodleharomypage'),
-      ),
-      EventTile(
-        name: "Mount Fuji Tour",
-        price: "€ 39",
-        imagePath: "lib/images/japan6.png",
-        rating: "4.3",
-        details: () {},
-      ),
-    ];
-
     return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(
         colors: [
           Color.fromRGBO(235, 239, 246, 1),
           Color.fromARGB(255, 125, 190, 244)
+          //Color.fromRGBO(0, 0, 0, 1),
+          //Color.fromRGBO(00, 53, 96, 1)
         ],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
@@ -94,7 +83,6 @@ class _MenuPageState extends State<MenuPage> {
                 onTap: () => Navigator.pushNamed(context, '/shoppage'),
                 child: Container(
                   width: 150,
-
                   padding: EdgeInsets.symmetric(vertical: 25, horizontal: 10),
                   //margin: EdgeInsetsDirectional.symmetric(horizontal: 25),
                   decoration: BoxDecoration(
@@ -110,37 +98,50 @@ class _MenuPageState extends State<MenuPage> {
                   )),
                 ),
               ),
-              Container(
-                width: 150,
-                padding: EdgeInsets.symmetric(vertical: 25, horizontal: 10),
-                //margin: EdgeInsetsDirectional.symmetric(horizontal: 25),
-                decoration: BoxDecoration(
-                  color: const Color(0xffffb46c),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Center(
-                    child: Text(
-                  "Kalender",
-                  style: TextStyle(
-                    fontSize: 20,
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/calendarpage'),
+                child: Container(
+                  width: 150,
+                  padding: EdgeInsets.symmetric(vertical: 25, horizontal: 10),
+                  //margin: EdgeInsetsDirectional.symmetric(horizontal: 25),
+                  decoration: BoxDecoration(
+                    color: const Color(0xffffb46c),
+                    borderRadius: BorderRadius.circular(5),
                   ),
-                )),
+                  child: Center(
+                      child: Text(
+                    "Kalender",
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  )),
+                ),
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FaIcon(FontAwesomeIcons.instagram),
-              SizedBox(width: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Öffnungszeiten"),
-                  Text("Di & Do: 10-16 Uhr"),
-                ],
-              ),
-            ],
+          Expanded(
+              child: SizedBox(
+            height: 1,
+          )),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                    onTap: () => _launchInstagram(),
+                    child:
+                        Container(child: FaIcon(FontAwesomeIcons.instagram))),
+                SizedBox(width: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Öffnungszeiten"),
+                    Text("Di & Do: 10-16 Uhr"),
+                  ],
+                ),
+              ],
+            ),
           ),
         ]),
       ),

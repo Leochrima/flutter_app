@@ -1,62 +1,10 @@
-Muss:
-- Produktseiten: 
-    - Overflow der Texte --> Lösung: Scrollbar machen
-    - Creator und Download in ordentlicher Größe und Schriftfarbe anzeigen
-- Appbar Produktseite Stößt am Rand an --> PAdding einfügen
-- Product-Tiles:
-    - Feste Größe -->hat mit "Fitted Box zu tun"
-    - Schriftgröße festsetzen
-- Menupage: 
-    - Ausrichtung der Elemente ordentlich machen
-- Warenkorb:
-    - Hintergrundfarbe
-    - Tiles ordentlich anzeigen
-    - "If-else" Funktionalität einfügen
-    - Total unten einblenden
-- Referenzen zu Festivalpage zu Product Page ändern
 
-Sollte dringend:
-- Design Farben ändern, insbesondere Button
-Produktseiten:
-    - Sternebewertung Variabel --> Lösung: Als Teil der Klasse aufnehmen 
-- Kalender Funktionalität ergänzen
-- Startseite Makerspace Schriftzug schön machen
-- ändere den Titel der Category in der database (und anstatt jedes mal IDs zu übergeben übergib das Objekt category)
 
-Wäre schön:
+Weitere Ideen:
 - Produktseite: 
     - Download Links verfügbar machen --> Lösung: Links dem Modell hinzufügen
     - Drehbare Videos einfügen: (Todos: Videos ausschneiden, Hochladen, Pfade der Klasse hinzufügen & "onhold" event zu Bildern ergänzen)
-
-Ideen: Button Schatten hinzu
-
-
-Todos Mahsa:
-
-1) Appbar global
-2) Inhalt (Database) + Text erzugen 
-4) leeres Bild 
-5) layout von Bilder
-6) Preise an den Bilder schreiben (vielleicht noch die Rating)
-
-Todos Leona:
-1) Kalender
-2) Startseite
-3) Download link für 3D modell
-4) Cartpage grobes Design
-
-
-
-
-vielleicht:
-bewegende Bilder
+Kalender
 Bewerten
 Account funktion
 Animation beim Öffnen
-
-
-Heute:
-1) Object seite
-2) menü site (insta seite)
-3) Button Design ändern
-

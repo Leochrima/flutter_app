@@ -8,6 +8,7 @@ import 'package:japan_reise/pages/shop.dart';
 import 'package:japan_reise/pages/start_page.dart';
 import 'package:provider/provider.dart';
 import 'package:japan_reise/cart_page.dart';
+import 'package:japan_reise/pages/calendar.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -30,6 +31,11 @@ class MyApp extends StatelessWidget {
       home: StartPage(),
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.transparent,
+        iconButtonTheme: IconButtonThemeData(
+          style: IconButton.styleFrom(
+            foregroundColor: const Color.fromARGB(255, 87, 92, 107),
+          ),
+        ),
         textTheme: TextTheme(
           bodyMedium: TextStyle(color: Color.fromARGB(255, 00, 53, 96)),
         ),
@@ -49,6 +55,7 @@ class MyApp extends StatelessWidget {
         '/productpage': (context) => ProductPage(),
         '/cartpage': (context) => CardPage(),
         '/categorypage': (context) => CategoryPage(),
+        '/calendarpage': (context) => Calendar(),
       },
     );
   }

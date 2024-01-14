@@ -15,12 +15,13 @@ class ShopTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 25),
+      //margin: EdgeInsets.symmetric(horizontal: 25),
       padding: EdgeInsets.all(8),
-      width: 400,
-      //height: 400,
+      //width: 400,
+      height: 500,
       decoration: BoxDecoration(
-        color: Color.fromARGB(99, 202, 202, 204),
+        color: Color.fromRGBO(8, 19, 42,
+            0.2), //Color.fromRGBO(13, 32, 70, 1), //color: Color.fromRGBO(141, 174, 16, 1),
         borderRadius: BorderRadius.circular(10),
         /* boxShadow: BoxShadow(
           color: Colors.grey.withOpacity(0.5),
@@ -47,7 +48,8 @@ class ShopTile extends StatelessWidget {
           Text(
             name,
             style: TextStyle(
-              color: Colors.white,
+              //color: Colors.white,
+              fontWeight: FontWeight.bold,
               fontSize: 18,
             ),
           ),
