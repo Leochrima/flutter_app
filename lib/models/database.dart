@@ -31,8 +31,6 @@ class DataBase extends ChangeNotifier {
   }
 
   //TODO: get total number of items
-
-  //hier müssen wir eine Variable definieren, welche speichert, welche Kategorie im Shop ausgewählt wurde damit diese dann bestimmen kann was in der category_page angezeigt wird
 }
 
 class Category {

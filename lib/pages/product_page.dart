@@ -151,8 +151,9 @@ class ProductPage extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 child: IconButton(
-                                  onPressed: () =>
-                                      {}, //DataBase.removeItem(product),
+                                  onPressed: () => {
+                                    DataBase.removeItem(product),
+                                  },
                                   icon: Icon(
                                     Icons.remove,
                                   ),
@@ -174,8 +175,9 @@ class ProductPage extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 child: IconButton(
-                                  onPressed: () =>
-                                      {}, //DataBase.addItem(product),
+                                  onPressed: () => {
+                                    DataBase.addItem(product),
+                                  },
                                   icon: Icon(Icons.add),
                                 ),
                               ),
